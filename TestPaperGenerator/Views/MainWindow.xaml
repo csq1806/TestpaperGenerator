@@ -5,39 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"  
-        mc:Ignorable="d" WindowState="Normal"
-        Title="MainWindow" Height="220" Width="525">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Text="请输入多少以内的四则运算" FontSize="20" Margin="5"></TextBlock>
-        <telerik:RadNumericUpDown IsEditable="True" AutoReverse="False" Minimum="10" Maximum="{Binding Maximum}" Value="{Binding CurrentValue}" ValueFormat="Numeric" NumberDecimalDigits="0" 
+        mc:Ignorable="d" WindowState="Normal" WindowStartupLocation="CenterScreen"
+        Title="四则运算" Height="280" Width="525" ResizeMode="CanMinimize">
+    <telerik:RadBusyIndicator IsBusy="{Binding IsBusy}" BusyContent="正在生成试卷, 请稍后...">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="请输入多少以内的四则运算" FontSize="20" Margin="5"></TextBlock>
+            <telerik:RadNumericUpDown IsEditable="True" AutoReverse="False" Minimum="10" Maximum="{Binding Maximum}" Value="{Binding CurrentValue}" ValueFormat="Numeric" NumberDecimalDigits="0" 
                                   Grid.Column="1" HorizontalAlignment="Stretch" Height="25" Margin="5"></telerik:RadNumericUpDown>
-        <TextBlock Text="请输入多少数字参与运算" Grid.Row="1" FontSize="20" Margin="5"></TextBlock>
-        <telerik:RadNumericUpDown Grid.Row="1" Grid.Column="2" IsEditable="True" AutoReverse="False" Minimum="2" Maximum="{Binding MaximumNumbers}" Value="{Binding CurrentNumber}" ValueFormat="Numeric" NumberDecimalDigits="0" 
+            <TextBlock Text="请输入多少数字参与运算" Grid.Row="1" FontSize="20" Margin="5"></TextBlock>
+            <telerik:RadNumericUpDown Grid.Row="1" Grid.Column="2" IsEditable="True" AutoReverse="False" Minimum="2" Maximum="{Binding MaximumNumbers}" Value="{Binding CurrentNumber}" ValueFormat="Numeric" NumberDecimalDigits="0" 
                                   HorizontalAlignment="Stretch" Height="25" Margin="5"></telerik:RadNumericUpDown>
-        <TextBlock Text="请选择四则运算种类" Grid.Row="2" FontSize="20" Margin="5"></TextBlock>
-        <ListView Grid.Row="2" Grid.Column="2" Margin="5" ItemsSource="{Binding Operations}">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"></StackPanel>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <CheckBox Content="{Binding DisplayName}" IsChecked="{Binding IsChecked,Mode=TwoWay}" IsEnabled="{Binding IsEnabled}" Margin="5"></CheckBox>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <telerik:RadButton Grid.Row="3" Grid.ColumnSpan="2" Content="Generate" Width="120" Height="25" Margin="10" 
+            <TextBlock Text="请输入打印的页数" Grid.Row="2" FontSize="20" Margin="5"></TextBlock>
+            <telerik:RadNumericUpDown Grid.Row="2" Grid.Column="2" IsEditable="True" AutoReverse="False" Minimum="1" Maximum="{Binding MaximumPages}" Value="{Binding CurrentPage}" ValueFormat="Numeric" NumberDecimalDigits="0" 
+                                  HorizontalAlignment="Stretch" Height="25" Margin="5"></telerik:RadNumericUpDown>
+            <TextBlock Text="请选择四则运算种类" Grid.Row="3" FontSize="20" Margin="5"></TextBlock>
+            <ListView Grid.Row="3" Grid.Column="2" Margin="5" ItemsSource="{Binding Operations}">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"></StackPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding DisplayName}" IsChecked="{Binding IsChecked,Mode=TwoWay}" IsEnabled="{Binding IsEnabled}" Margin="5"></CheckBox>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <telerik:RadButton Grid.Row="4" Grid.ColumnSpan="2" Content="Generate" Width="120" Height="25" Margin="10" 
                            HorizontalAlignment="Center" VerticalAlignment="Bottom" Command="{Binding GenerateTestPaperCommand}"></telerik:RadButton>
-    </Grid>
+        </Grid>
+    </telerik:RadBusyIndicator>
 </Window>

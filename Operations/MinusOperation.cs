@@ -18,7 +18,7 @@ namespace Operations
 		public override int GenerateNextNumber(int preResult)
 		{
 			int max = Maximum + 1;
-			return random.Next(1, preResult);
+			return random.Next(0, preResult);
 		}
 	}
 }

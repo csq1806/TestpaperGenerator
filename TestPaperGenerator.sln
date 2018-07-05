@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operations", "Operations\Operations.csproj", "{4A60F35B-D6A8-4DC7-B78D-AB994EFE8C2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintDocument", "PrintDocument\PrintDocument.csproj", "{0B4F4528-05B3-40AF-B8D4-4750DEBC15C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateDocument", "PrintDocument\GenerateDocument.csproj", "{0B4F4528-05B3-40AF-B8D4-4750DEBC15C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPaperGenerator", "TestPaperGenerator\TestPaperGenerator.csproj", "{D57D3CC2-859F-49EC-B678-0DFB20D42EFB}"
 EndProject
