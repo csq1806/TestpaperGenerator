@@ -218,7 +218,7 @@ namespace TestPaperGenerator.ViewModels
 				int start = arr[i - 1];
 				int value = operation.GenerateNextNumber(start);
 				exp += (operation.Operator + value);
-				arr[i] = Convert.ToInt32(new DataTable().Compute(exp, null));
+				arr[i] = Convert.ToInt32(new DataTable().Compute(exp.Replace('x', '*'), null));
 
 				if (i == numbers - 1) exp += "=";
 			}

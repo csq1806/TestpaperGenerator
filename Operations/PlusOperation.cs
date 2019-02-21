@@ -18,6 +18,7 @@ namespace Operations
 		public override int DisplayIndex { get { return 1; } }
 		public override int GenerateNextNumber(int preResult)
 		{
+			//return random.Next(1, 10);
 			int max = Maximum + 1;
 			return random.Next(0, max - preResult);
 		}

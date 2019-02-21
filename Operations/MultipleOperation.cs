@@ -13,11 +13,12 @@ namespace Operations
 			IsChecked = false;
 		}
 		public override string DisplayName { get { return "乘法"; } }
-		public override string Operator { get { return "*"; } }
+		public override string Operator { get { return " x "; } }
 		public override int DisplayIndex { get { return 3; } }
-		public override bool IsEnabled { get { return false; } }
+		public override bool IsEnabled { get { return true; } }
 		public override int GenerateNextNumber(int preResult)
 		{
+			return random.Next(1, 10);
 			int max = Maximum + 1;
 			return random.Next(0, max / preResult);
 		}

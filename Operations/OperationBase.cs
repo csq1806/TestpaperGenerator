@@ -49,6 +49,7 @@ namespace Operations
 
 		public int GenerateFirstNumber()
 		{
+			//return random.Next(1, 10);
 			return random.Next(5, Maximum);
 		}
 	}
